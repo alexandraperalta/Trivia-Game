@@ -1,0 +1,51 @@
+.btnAnswers {
+    color:#ff1a75;
+    background-color: #2c1a54;
+    margin-top: 20px;
+    padding: 10px;
+    width: 357px;
+}
+.options{
+    float: left;
+}
+.question {
+    margin-top: 58px;
+    width: 308px;
+    margin: 0 auto;
+    background-color: rgba(245, 245, 245, 0.4);
+    opacity: 5;
+}
+@font-face {
+    font-family: neon;
+    src: url(neon2.ttf);
+    
+}
+.card-block{
+    min-height: 500px;
+}
+.card-header{
+    font-family: neon;
+    color: #ff1a75;  
+}
+.card-info{
+    background-color: black;
+}
+h1{
+    font-size: 120px !important;
+}
+#start_button{
+    font-family: neon;
+    background-color: black;
+    color: #ff1a75;
+    font-size: 35px !important;  
+}
+button:disabled {
+    background-color: #dddddd;
+}
+
+body{
+    background-image: url(background-image.jpg);
+    background-size:100%;
+}
+.card { background-color: rgba(245, 245, 245, 0.4); }
+.card-header, .card-footer { opacity: 1}

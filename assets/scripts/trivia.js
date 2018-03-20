@@ -6,24 +6,26 @@ var time = 10;
 var answeredCorrectly = 0;
 var answeredIncorrectly = 0;
 
-
+//this runs for every new question
 function displayQuestionsAndOptions() {
-    $("#start_button").prop("disabled", true);
+    $("#start_button").css("display", "none");
     stopwatch.reset();
     stopwatch.start();
     $(".question").text(questionArray[qCount].question);
+    //brings up each option
     displayOptions(qCount);
 }
 function displayOptions(qCount) {
 
-    $(".options").text("");
+    $(".options").text(""); //clear out previous options
     for (var i = 0; i < questionArray[qCount].options.length; i++) {
-        var btnAnswers = $("<button        >");
+        var btnAnswers = $("<button>");
         btnAnswers.addClass("btnAnswers");
         btnAnswers.prop("id", questionArray[qCount].options[i]);
         btnAnswers.text(questionArray[qCount].options[i]);
         $(".options").append(btnAnswers);
     }
+    //make each option clickable and register user's choice
     $('.btnAnswers').off("click");
     $(".btnAnswers").on('click', function () {
         if (time > 0) {
@@ -41,6 +43,7 @@ function displayOptions(qCount) {
     });
     $('.btnAnswers').css('cursor', 'pointer');
 }
+//timer
 var stopwatch = {
     reset: function () {
         time = 10;
@@ -92,15 +95,20 @@ var stopwatch = {
     }
 
 };
+//click event for start button
 $("#start_button").on('click', function () {
     answeredCorrectly = 0;
     answeredIncorrectly = 0;
+    //reset question counter to beginning
     if (qCount == questionArray.length - 1) {
         qCount = 0;
     }
     stopwatch.start();
+    //display first
     displayQuestionsAndOptions();
 });
+
+//just make a pointer cursor on the start button
 $("#start_button").css('cursor', 'pointer');
 
 var questionArray = [
@@ -135,6 +143,7 @@ function gameOver() {
     
     $("#timer").css("font-size", "55px");
     $("#timer").text("QUIZ OVER! \nCorrect: " + answeredCorrectly + "\nIncorrect: " + answeredIncorrectly);
+    $("#start_button").css("display", "inline");
     $("#start_button").text("Try again!");
 }
 function display(questionOver) {
